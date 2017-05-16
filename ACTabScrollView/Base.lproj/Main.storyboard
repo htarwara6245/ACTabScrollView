@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,7 +29,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="106"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="PVm-ac-Htn" id="bce-q3-Y8c">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="105"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="105.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jWQ-hc-pl0">
@@ -148,10 +147,27 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EmM-oy-FTz" customClass="ACTabScrollView" customModule="ACTabScrollView" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gmf-dL-IVi">
+                                        <rect key="frame" x="305" y="0.0" width="70" height="64"/>
+                                        <color key="backgroundColor" red="0.4062153697013855" green="0.80823582410812378" blue="0.85152101516723633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="0td-9f-HtF"/>
+                                            <constraint firstAttribute="width" constant="70" id="pfC-cW-yoM"/>
+                                        </constraints>
+                                        <state key="normal" title="Retry">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="gmf-dL-IVi" secondAttribute="trailing" id="A0x-Jw-vvy"/>
+                                    <constraint firstItem="gmf-dL-IVi" firstAttribute="top" secondItem="EmM-oy-FTz" secondAttribute="top" id="pTE-6X-uzA"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="tabSectionBackgroundColor">
-                                        <color key="value" red="0.082020960749999997" green="0.69985073799999997" blue="0.32904106379999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="0.40784313729999999" green="0.80784313730000001" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="arrowIndicator" value="YES"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="pagingEnabled" value="YES"/>
@@ -161,6 +177,10 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="arrowHeight">
                                         <real key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isRetryButtonIncluded" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="retryButtonWidth">
+                                        <real key="value" value="70"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
