@@ -13,12 +13,13 @@ class NewsViewController: UIViewController, ACTabScrollViewDelegate, ACTabScroll
     @IBOutlet weak var tabScrollView: ACTabScrollView!
     
     var contentViews: [UIView] = []
+    var category : [String] = ["Yesterday \n 01 May 2017","Today \n02 May 2017"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // set ACTabScrollView, all the following properties are optional
-        tabScrollView.defaultPage = 3
+        tabScrollView.defaultPage = 0
         tabScrollView.arrowIndicator = true
 //        tabScrollView.tabSectionHeight = 40
 //        tabScrollView.tabSectionBackgroundColor = UIColor.whiteColor()
@@ -68,18 +69,19 @@ class NewsViewController: UIViewController, ACTabScrollViewDelegate, ACTabScroll
     func tabScrollView(_ tabScrollView: ACTabScrollView, tabViewForPageAtIndex index: Int) -> UIView {
         // create a label
         let label = UILabel()
-        label.text = String(describing: NewsCategory.allValues()[index]).uppercased()
+        label.text = String(describing: category[index])
         if #available(iOS 8.2, *) {
-            label.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightThin)
+            label.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightBold)
         } else {
             label.font = UIFont.systemFont(ofSize: 16)
         }
-        label.textColor = UIColor(red: 77.0 / 255, green: 79.0 / 255, blue: 84.0 / 255, alpha: 1)
+        label.textColor = UIColor.white
         label.textAlignment = .center
         
         // if the size of your tab is not fixed, you can adjust the size by the following way.
-        label.sizeToFit() // resize the label to the size of content
-        label.frame.size = CGSize(width: label.frame.size.width + 28, height: label.frame.size.height + 36) // add some paddings
+        //label.sizeToFit() // resize the label to the size of content
+        label.numberOfLines = 0
+        label.frame.size = CGSize(width: label.frame.size.width + 150, height: label.frame.size.height + 60) // add some paddings
         
         return label
     }

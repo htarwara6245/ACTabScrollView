@@ -39,6 +39,8 @@ open class ACTabScrollView: UIView, UIScrollViewDelegate {
     @IBInspectable open var arrowBackgroundColor: UIColor = UIColor.white
     @IBInspectable open var arrowWidth : CGFloat = 12
     @IBInspectable open var arrowHeight : CGFloat = 7
+    @IBInspectable open var isRetryButtonIncluded : Bool = false
+    @IBInspectable open var retryButtonWidth : CGFloat = 50
     
     open var delegate: ACTabScrollViewDelegate?
     open var dataSource: ACTabScrollViewDataSource?
@@ -385,7 +387,12 @@ open class ACTabScrollView: UIView, UIScrollViewDelegate {
             }
             
             // reset the fixed size of tab section
-            tabSectionScrollView.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: tabSectionHeight)
+            
+            if isRetryButtonIncluded{
+                tabSectionScrollView.frame = CGRect(x: 0, y: 0, width: self.frame.size.width - retryButtonWidth, height: tabSectionHeight)
+            }else{
+                tabSectionScrollView.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: tabSectionHeight)
+            }
             tabSectionScrollView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(ACTabScrollView.tabSectionScrollViewDidClick(_:))))
             tabSectionScrollView.contentInset = UIEdgeInsets(
                 top: 0,
